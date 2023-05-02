@@ -1,18 +1,19 @@
 import { getAllProjects, getSingleProject } from "@/lib/projects";
 import Link from "next/link";
 import {PortableText} from '@portabletext/react'
+import Image from "@/components/Image";
 
 const components = {
   types: {
-    image: ({value}) => <img src={value.imageUrl} />,
+    image: ({value}) => <Image value={value} />
   }
 }
 
 export default function ProjectPage({project}){
     
     return <div className="project max-w-4xl mx-auto">
-      <div className="back">
-      <Link href='/'>{'<--  Back'}</Link>
+      <div className="back mb-6">
+        <Link href='/'>{'<  Back'}</Link>
       </div>
         <h1 className="text-2xl mb-2">{project.title}</h1>
         <PortableText value={project.content} components={components} />
